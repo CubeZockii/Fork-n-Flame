@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Team-Bewerbung | Fork 'N Flame</title>
+    <link rel="stylesheet" href="./static/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="icon" href="./static/apply-icon.png" type="image/png">
+    <script defer src="./static/script.js"></script>
+</head>
+<body>
+    <header class="navbar">
+        <a href="index.html" class="navbar-logo">Fork<span>'N</span>Flame</a>
+        <nav class="navbar-links">
+            <a class="nav-link" href="index.html#features">Features</a>
+            <a class="nav-link" href="applications.html">Bewerben</a>
+            <a class="nav-link" href="https://cubezockii.github.io/about-me/">Über Mich</a>
+            <a href="https://discord.gg/t7WAjKp7sF" class="nav-join-btn">Jetzt Beitreten</a>
+        </nav>
+        <div class="mobile-menu-icon">
+            <i class="fas fa-bars"></i>
+        </div>
+    </header>
+
+    <nav class="mobile-nav">
+        <a class="nav-link" href="index.html">Haupseite</a>
+        <a class="nav-link" href="https://cube.is-a.dev/">Über Mich</a>
+        <a href="https://discord.gg/t7WAjKp7sF" class="nav-join-btn">Jetzt Beitreten</a>
+    </nav>
+    
+    <main class="main-content">
+        <section class="form-section scroll-animate" style="margin-top: 0; background-color: transparent;">
+            <div class="scroll-animate">
+                <h2 class="section-title" style="padding-top: 0;">Bewerbung für eine <span>Team</span>-Position</h2>
+                <p style="text-align: center; max-width: 600px; margin: -40px auto 60px; color: var(--text-secondary);">
+                    Wir suchen engagierte Mitglieder, die uns helfen, eine sichere, unterhaltsame und aktive Umgebung zu pflegen. Wenn du bereit bist, mitzuwirken, fülle bitte das folgende Formular aus.
+                </p>
+                <form action="https://application-data-ykns.onrender.com/apply" method="POST" class="application-form">
+                    <label for="id">User ID</label>
+                    <input type="text" id="id" name="id" maxlength="18" placeholder="Deine 18-stellige Discord User-ID" required>
+
+                    <label for="discord">Discord Username</label>
+                    <input type="text" style="text-transform: lowercase;" id="discord" name="discord" placeholder="dein.username (nur Kleinbuchstaben)" required>
+
+                    <label for="age">Dein Alter</label>
+                    <input type="number" id="age" name="age" min="14" max="25" placeholder="z.B. 18" required>
+
+                    <label for="role">Für welche Rolle bewirbst du dich?</label>
+                    <select id="role" name="role" required>
+                        <option value="" disabled selected>Wähle eine Rolle aus dem Menü</option>
+                        <option value="admin">Admin</option>
+                        <option value="head-management">Head Management</option>
+                        <option value="manager">Management</option>
+                        <option value="head-moderator">Head Moderator</option>
+                        <option value="moderator">Moderator</option>
+                    </select>
+
+                    <label for="experience">Hast du bereits Moderationserfahrung?</label>
+                    <textarea style="resize: none;" minlength="30" maxlength="300" id="experience" name="experience" rows="6" placeholder="Erzähle uns von deinen früheren Rollen, Verantwortlichkeiten und den Communitys, denen du geholfen hast." required></textarea>
+
+                    <label for="reason">Warum möchtest du ein Teammitglied werden?</label>
+                    <textarea style="resize: none;" minlength="30" maxlength="300" id="reason" name="reason" rows="6" placeholder="Erkläre, was dich motiviert, unserem Team beizutreten und was du in die Community einbringen möchtest." required></textarea>
+
+                    <button type="submit" class="cta-btn apply-button">Bewerbung absenden</button>
+                </form>
+            </div>
+        </section>
+    </main>
+
+     <footer class="scroll-animate" style="margin-top: 0;">
+        <div class="footer-socials">
+            <a href="#" aria-label="Discord"><i class="fab fa-discord"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        </div>
+        <p>&copy; 2025 Fork 'N Flame. Alle Rechte vorbehalten.</p>
+    </footer>
+</body>
+</html>
