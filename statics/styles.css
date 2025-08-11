@@ -1,0 +1,377 @@
+/* static/styles.css */
+
+/* --- Google Fonts Import --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@400;500;600&display=swap');
+
+/* --- CSS Variablen für professionelles Theming --- */
+:root {
+    --background-color: #121212;
+    --text-primary: #ECECEC;
+    --text-secondary: #A0A0A0;
+    --accent-primary: #FFA726; /* Warmes Amber */
+    --accent-hover: #FB8C00;
+    --surface-color: #1E1E1E;
+    --border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* --- Allgemeine Body-Styles --- */
+html {
+    /* NEU: Sorgt für sanftes Scrollen bei Klicks auf Anker-Links (z.B. #features) */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: var(--background-color);
+    color: var(--text-primary);
+    overflow-x: hidden;
+}
+
+/* --- Navigationsleiste (Desktop) --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    padding: 20px 5%;
+    box-sizing: border-box;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: transparent;
+    transition: background 0.4s ease, transform 0.5s ease-out;
+    z-index: 1000;
+}
+
+.navbar.scrolled {
+    background: rgba(18, 18, 18, 0.8);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+}
+
+.navbar-logo {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8em;
+    font-weight: 700;
+    color: var(--text-primary);
+    text-decoration: none;
+}
+
+.navbar-logo span {
+    color: var(--accent-primary);
+}
+
+.navbar-links {
+    display: flex; /* Wird auf Mobilgeräten durch CSS ausgeblendet */
+    gap: 40px;
+    align-items: center;
+}
+
+.nav-link {
+    font-size: 1.1em;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-decoration: none;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+    color: var(--text-primary);
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -5px;
+    left: 0;
+    background-color: var(--accent-primary);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after {
+    width: 100%;
+}
+
+.nav-join-btn {
+    font-weight: 600;
+    background-color: var(--accent-primary);
+    color: #121212;
+    padding: 12px 25px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.nav-join-btn:hover {
+    background-color: var(--accent-hover);
+    transform: scale(1.05);
+}
+
+/* --- Hero Section --- */
+.hero {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    height: 100vh;
+    padding: 0 20px;
+    background: linear-gradient(rgba(18, 18, 18, 0.7), rgba(18, 18, 18, 0.7)), url('https://images.unsplash.com/photo-1504674900247-0877df9cc836?q=80&w=2940&auto=format&fit=crop') no-repeat center center;
+    background-size: cover;
+    position: relative;
+}
+
+.hero h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 5em;
+    margin: 0;
+    color: white;
+    text-shadow: 0 4px 15px rgba(0,0,0,0.5);
+}
+
+.hero p {
+    font-size: 1.5em;
+    color: var(--text-secondary);
+    max-width: 700px;
+    margin: 20px 0 40px;
+    line-height: 1.6;
+}
+
+.cta-btn { /* Generischer Button-Style */
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.1em;
+    font-weight: 600;
+    background: var(--accent-primary);
+    color: #121212;
+    padding: 18px 35px;
+    border: none;
+    border-radius: 10px;
+    text-decoration: none;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.cta-btn:hover {
+    background-color: var(--accent-hover);
+    transform: translateY(-3px);
+}
+
+/* --- Scroll-Down Indikator --- */
+.scroll-down {
+    position: absolute;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 2.5em;
+    opacity: 0.7;
+    animation: bounce 2s infinite;
+}
+
+@keyframes bounce {
+    0%, 20%, 50%, 80%, 100% {
+        transform: translateX(-50%) translateY(0);
+    }
+    40% {
+        transform: translateX(-50%) translateY(-20px);
+    }
+    60% {
+        transform: translateX(-50%) translateY(-10px);
+    }
+}
+
+
+/* --- Sections & Feature-Karten --- */
+.section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 3.5em;
+    text-align: center;
+    margin-bottom: 60px;
+    padding-top: 100px;
+}
+.section-title span { color: var(--accent-primary); }
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+    gap: 40px;
+    padding: 0 5%;
+    max-width: 1400px;
+    margin: 0 auto;
+}
+
+.card {
+    position: relative;
+    border-radius: 15px;
+    overflow: hidden;
+    height: 450px;
+    color: white;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+    transition: transform 0.4s ease;
+}
+.card:hover { transform: scale(1.03); }
+
+.card-background {
+    position: absolute;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background-size: cover;
+    background-position: center;
+    transition: transform 0.5s ease;
+}
+.card:hover .card-background { transform: scale(1.1); }
+
+.card-content {
+    position: absolute;
+    bottom: 0; left: 0;
+    width: 100%;
+    padding: 30px;
+    box-sizing: border-box;
+    background: linear-gradient(to top, rgba(0,0,0,0.95) 20%, transparent);
+    text-align: left;
+}
+.card-content h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2em;
+    margin: 0 0 10px;
+}
+.card-content p {
+    font-size: 1em;
+    line-height: 1.6;
+    margin-bottom: 20px;
+}
+
+.card-details-btn {
+    background: transparent;
+    border: 2px solid var(--accent-primary);
+    color: var(--accent-primary);
+    padding: 10px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    opacity: 0; /* Standardmäßig unsichtbar */
+    transform: translateY(10px);
+    transition: opacity 0.4s ease, transform 0.4s ease, background-color 0.3s, color 0.3s;
+}
+.card:hover .card-details-btn {
+    opacity: 1;
+    transform: translateY(0);
+}
+.card-details-btn:hover {
+    background-color: var(--accent-primary);
+    color: #121212;
+}
+
+/* --- Formular-Section & Footer --- */
+.form-section {
+    padding: 80px 5%;
+    background-color: var(--surface-color);
+    margin-top: 100px;
+}
+.application-form {
+    max-width: 700px; margin: 0 auto; background-color: #121212; padding: 50px; border-radius: 15px; border: 1px solid var(--border-color);
+}
+.application-form label {
+    font-weight: 600; font-size: 1.1em; margin-top: 20px; display: block; color: var(--text-secondary);
+}
+.application-form input, .application-form textarea, .application-form select {
+    width: 100%; padding: 15px; margin-top: 10px; border: 1px solid var(--border-color); border-radius: 8px; background: #1E1E1E; font-size: 1em; color: var(--text-primary); outline: none; transition: border-color 0.3s, box-shadow 0.3s; box-sizing: border-box;
+}
+.application-form input:focus, .application-form textarea:focus, .application-form select:focus {
+    border-color: var(--accent-primary); box-shadow: 0 0 0 3px rgba(255, 167, 38, 0.3);
+}
+.apply-button { width: 100%; padding: 18px; margin-top: 30px; }
+
+footer {
+    text-align: center; padding: 40px 5%; margin-top: 80px; border-top: 1px solid var(--border-color);
+}
+.footer-socials { margin-bottom: 20px; }
+.footer-socials a {
+    font-size: 1.5em; margin: 0 15px; color: var(--text-secondary); transition: color 0.3s ease, transform 0.3s ease; display: inline-block;
+}
+.footer-socials a:hover { color: var(--accent-primary); transform: translateY(-3px); }
+
+
+/* ############################################# */
+/* #         MOBILES MENÜ & RESPONSIVE         # */
+/* ############################################# */
+
+/* Hamburger Menü Icon */
+.mobile-menu-icon {
+    display: none; /* Nur auf Mobilgeräten sichtbar */
+    font-size: 1.8em;
+    color: var(--text-primary);
+    cursor: pointer;
+    z-index: 1002;
+}
+
+/* Mobiles Navigations-Overlay */
+.mobile-nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(18, 18, 18, 0.98);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    z-index: 1001;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.4s ease, visibility 0.4s ease;
+}
+
+.mobile-nav.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.mobile-nav .nav-link {
+    font-size: 2em;
+    font-weight: 700;
+    color: var(--text-primary);
+}
+.mobile-nav .nav-join-btn {
+    font-size: 1.5em;
+    padding: 15px 40px;
+}
+
+
+/* --- Media Queries für Responsiveness --- */
+
+/* Tablets und kleine Desktops */
+@media (max-width: 992px) {
+    .navbar-links { display: none; } /* Desktop-Links ausblenden */
+    .mobile-menu-icon { display: block; } /* Hamburger-Icon einblenden */
+}
+
+/* Mobile Geräte */
+@media (max-width: 768px) {
+    .hero h1 { font-size: 3.2em; }
+    .hero p { font-size: 1.2em; }
+    .section-title { font-size: 2.8em; padding-top: 80px; }
+    .features-grid { grid-template-columns: 1fr; gap: 30px; }
+    .application-form { padding: 30px; }
+    .form-section { padding-top: 40px; }
+    .main-content { padding-top: 120px; }
+}
+
+
+/* --- Scroll-Animationen (bleiben unverändert) --- */
+.scroll-animate {
+    opacity: 0;
+    transform: translateY(50px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.scroll-animate.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
